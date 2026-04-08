@@ -42,3 +42,10 @@ void test2() {
     
     for (int x : arr) cout << x << " ";
 }
+// more test functions can be added here to test different cases
+void test3() {
+    vector<int> arr = {1, 1, 1, 1, 1};
+    qsort(arr, 0, arr.size() - 1);
+    
+    for (int x : arr) cout << x << " ";
+}
