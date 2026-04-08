@@ -28,3 +28,10 @@ int main() {
     
     return 0;
 }
+// test function
+void test() {
+    vector<int> arr = {5, 2, 8, 1, 9, 3};
+    qsort(arr, 0, arr.size() - 1);
+    
+    for (int x : arr) cout << x << " ";
+}
