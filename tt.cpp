@@ -2,19 +2,29 @@
 #include <vector>
 using namespace std;
 
+void qsort(vector<int>& a, int l, int r) {
+    if (l >= r) return;
+    
+    int i = l, j = r, p = a[l];
+    
+    while (i < j) {
+        while (i < j && a[j] >= p) j--;
+        if (i < j) a[i++] = a[j];
+        
+        while (i < j && a[i] < p) i++;
+        if (i < j) a[j--] = a[i];
+    }
+    
+    a[i] = p;
+    qsort(a, l, i - 1);
+    qsort(a, i + 1, r);
+}
+
 int main() {
     vector<int> arr = {5, 2, 8, 1, 9, 3};
-    int n = arr.size();
+    qsort(arr, 0, arr.size() - 1);
     
-    // 冒泡排序核心代码（只有4行）
-    for (int i = 0; i < n - 1; i++)
-        for (int j = 0; j < n - 1 - i; j++)
-            if (arr[j] > arr[j + 1])
-                swap(arr[j], arr[j + 1]);
-    
-    // 输出结果
-    for (int num : arr)
-        cout << num << " ";
+    for (int x : arr) cout << x << " ";
     
     return 0;
 }
