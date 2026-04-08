@@ -28,24 +28,37 @@ int main() {
     
     return 0;
 }
-// test function
-void test() {
-    vector<int> arr = {5, 2, 8, 1, 9, 3};
-    qsort(arr, 0, arr.size() - 1);
-    
-    for (int x : arr) cout << x << " ";
-}
-// test function for other cases
-void test2() {
-    vector<int> arr = {10, 7, 8, 9, 1, 5};
-    qsort(arr, 0, arr.size() - 1);
-    
-    for (int x : arr) cout << x << " ";
-}
-// more test functions can be added here to test different cases
-void test3() {
-    vector<int> arr = {1, 1, 1, 1, 1};
-    qsort(arr, 0, arr.size() - 1);
-    
-    for (int x : arr) cout << x << " ";
+// write a unittest for the qsort function
+#include <cassert>
+
+void test_qsort() {
+    // Test case 1: Regular case
+    vector<int> arr1 = {5, 2, 8, 1, 9, 3};
+    qsort(arr1, 0, arr1.size() - 1);
+    assert(arr1 == vector<int>({1, 2, 3, 5, 8, 9}));
+
+    // Test case 2: Already sorted
+    vector<int> arr2 = {1, 2, 3, 4, 5};
+    qsort(arr2, 0, arr2.size() - 1);
+    assert(arr2 == vector<int>({1, 2, 3, 4, 5}));
+
+    // Test case 3: Reverse sorted
+    vector<int> arr3 = {5, 4, 3, 2, 1};
+    qsort(arr3, 0, arr3.size() - 1);
+    assert(arr3 == vector<int>({1, 2, 3, 4, 5}));
+
+    // Test case 4: All elements are the same
+    vector<int> arr4 = {1, 1, 1, 1, 1};
+    qsort(arr4, 0, arr4.size() - 1);
+    assert(arr4 == vector<int>({1, 1, 1, 1, 1}));
+
+    // Test case 5: Single element
+    vector<int> arr5 = {42};
+    qsort(arr5, 0, arr5.size() - 1);
+    assert(arr5 == vector<int>({42}));
+
+    // Test case    6: Empty array
+    vector<int> arr6 = {};
+    qsort(arr6, 0, arr6.size() - 1);
+    assert(arr6 == vector<int>({}));
 }
