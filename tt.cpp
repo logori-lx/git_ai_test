@@ -5,14 +5,13 @@ using namespace std;
 void qsort(vector<int>& a, int l, int r) {
     if (l >= r) return;
     
-    int i = l, j = r, p = a[l];
+    int p = a[l], i = l, j = r;
     
     while (i < j) {
         while (i < j && a[j] >= p) j--;
-        if (i < j) a[i++] = a[j];
-        
-        while (i < j && a[i] < p) i++;
-        if (i < j) a[j--] = a[i];
+        a[i] = a[j];
+        while (i < j && a[i] <= p) i++;
+        a[j] = a[i];
     }
     
     a[i] = p;
