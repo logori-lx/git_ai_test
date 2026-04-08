@@ -35,3 +35,10 @@ void test() {
     
     for (int x : arr) cout << x << " ";
 }
+// test function for other cases
+void test2() {
+    vector<int> arr = {10, 7, 8, 9, 1, 5};
+    qsort(arr, 0, arr.size() - 1);
+    
+    for (int x : arr) cout << x << " ";
+}
